@@ -26,12 +26,35 @@ tx = {
 
 ```
 
-Sign the tx
+Sign the tx  
 `signed_tx = web3.eth.account.signTransaction(tx, private_key)`
 
 
-Send the tx
+Send the tx  
 `tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)`
+
+__Get information of latest block__
+`info = web3.eth.getBlock('latest')`
+
+For this latest block, 
+number: 1481
+gasLimit: 6721975
+gasUsed: 21000
+
+__Get and print receipt of conducted tx__
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

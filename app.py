@@ -26,6 +26,29 @@ tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)
 # print to stdout the hash of the transaction
 print(web3.toHex(tx_hash))
 
+# get latest block
+info = web3.eth.getBlock('latest')
+print('number: {}'.format(info['number']))
+print('gasLimit: {}'.format(info['gasLimit']))
+print('gasUsed: {}'.format(info['gasUsed']))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
