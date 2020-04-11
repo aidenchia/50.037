@@ -15,6 +15,7 @@ Create a nonce as it is a required field in transaction to prevent double spendi
 `nonce = web3.eth.getTransactionCount(account_1)`
 
 Create the transaction as a dict
+
 ```
 tx = {
 	'nonce': nonce,
@@ -26,23 +27,26 @@ tx = {
 
 ```
 
-Sign the tx  
-`signed_tx = web3.eth.account.signTransaction(tx, private_key)`
+Sign and send the tx    
 
+```
+signed_tx = web3.eth.account.signTransaction(tx, private_key)
+tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)
 
-Send the tx  
-`tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)`
+```
 
 __Get information of latest block__
 `info = web3.eth.getBlock('latest')`
 
 For this latest block, 
-number: 1481
-gasLimit: 6721975
-gasUsed: 21000
+* number: 1481
+* gasLimit: 6721975
+* gasUsed: 21000
 
 __Get and print receipt of conducted tx__
-
+```
+print(web3.eth.getTransactionReceipt(tx_hash))
+```
 
 
 

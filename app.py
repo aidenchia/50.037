@@ -32,7 +32,8 @@ print('number: {}'.format(info['number']))
 print('gasLimit: {}'.format(info['gasLimit']))
 print('gasUsed: {}'.format(info['gasUsed']))
 
-
+# print receipt of a conducted tx
+print(web3.eth.getTransactionReceipt(tx_hash))
 
 
 
