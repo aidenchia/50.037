@@ -89,7 +89,7 @@ print(web3.eth.getTransactionReceipt(tx_hash)['gasUsed'])
 
 FibonacciA is more efficient in terms of gas cost.
 
-__Would `fibonacciA` be cheaper if it is non payable?__ 
+__Would `fibonacciA` be cheaper if it is non payable?__   
 In terms of gas cost, there would be no difference whether payable or not.
 
 __Optimze fiboncciB__
