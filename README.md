@@ -100,10 +100,10 @@ Change the for-loop block to the following, logic is the same but we remove redu
 ```
 for(uint i = 2; i <= n; i++) {
 	previousSecond += previousFirst;
-    previousFirst = previousSecond;
-    }
-    
-    return(previousSecond);
+	previousFirst = previousSecond;
+}
+
+return(previousSecond);
 ```
 
 
