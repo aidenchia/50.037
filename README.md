@@ -11,7 +11,7 @@ web3 = Web3(Web3.HTTPProvider(ganache_url))
 
 __Make transactions between Ganache accounts__
 
-Create a nonce as it is a required field in transaction to prevent double spending
+Create a nonce as it is a required field in transaction to prevent double spending  
 `nonce = web3.eth.getTransactionCount(account_1)`
 
 Create the transaction as a dict
