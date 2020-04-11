@@ -21,7 +21,7 @@ tx_receipt = web3.eth.waitForTransactionReceipt(tx_hash)
 # Instantiate the smart contract at specified address
 contract = web3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
 
-# Call functions in smart contract
+# Call fibonacciB in smart contract
 tx_hash = contract.functions.fibonacciB(4).transact()
 
 # Wait for tx to be mined
@@ -30,8 +30,10 @@ web3.eth.waitForTransactionReceipt(tx_hash)
 # Print receipt
 print(web3.eth.getTransactionReceipt(tx_hash)['gasUsed'])
 
-
-
+# Call fibonacciA in smart contract
+tx_hash = contract.functions.fibonacciA(4).transact({'value': 1000000000000000000})
+web3.eth.waitForTransactionReceipt(tx_hash)
+print(web3.eth.getTransactionReceipt(tx_hash)['gasUsed'])
 
 
 

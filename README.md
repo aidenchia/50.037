@@ -65,12 +65,35 @@ tx_hash = Fib.constructor().transact()
 tx_receipt = web3.eth.waitForTransactionReceipt(tx_hash)
 ```
 
-__Which Fibonacci function is more efficient in terms of gas cost?__
+__Which Fibonacci function is more efficient in terms of gas cost?__  
+
 Instantiate the smart contract at specified address  
 `contract = web3.eth.contract(address=tx_receipt.contractAddress, abi=abi)`
 
+Execute fibonacciB and inspect `gasUsed`
+```
+tx_hash = contract.functions.fibonacciB(4).transact()
 
+web3.eth.waitForTransactionReceipt(tx_hash)
 
+print(web3.eth.getTransactionReceipt(tx_hash)['gasUsed'])
+> 129755
+```
+Execute fibonacciA and inspect `gasUsed`
+```
+tx_hash = contract.functions.fibonacciA(4).transact({'value': 1000000000000000000})
+web3.eth.waitForTransactionReceipt(tx_hash)
+print(web3.eth.getTransactionReceipt(tx_hash)['gasUsed'])
+> 22846
+```
+
+FibonacciA is more efficient in terms of gas cost.
+
+__Would `fibonacciA` be cheaper if it is non payable?__ 
+In terms of gas cost, there would be no difference whether payable or not.
+
+__Optimze fiboncciB__
+ 
 
 
 
