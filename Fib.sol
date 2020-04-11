@@ -7,7 +7,7 @@ contract Fib {
     address private owner;
     uint private previousFirst;
     uint private previousSecond;
-    uint private next;
+    //uint private next;
 
     constructor() public {
         owner = msg.sender;
@@ -27,13 +27,11 @@ contract Fib {
     function fibonacciB(uint n) public returns(uint) {
         previousFirst = 0;
         previousSecond = 1;
-        next = 1;
         for(uint i = 2; i <= n; i++) {
-            next = previousFirst + previousSecond;
+            previousSecond += previousFirst;
             previousFirst = previousSecond;
-            previousSecond = next;
         }
-        return(next);
+        return(previousSecond);
     }
 
 }

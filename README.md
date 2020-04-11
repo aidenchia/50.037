@@ -93,8 +93,18 @@ __Would `fibonacciA` be cheaper if it is non payable?__
 In terms of gas cost, there would be no difference whether payable or not.
 
 __Optimze fiboncciB__
- 
 
+Remove the line `previousFirst = 0` as by default its set to 0
+
+Change the for-loop block to the following, logic is the same but we remove redundant statements so we save gas since gas is charged per software instruction
+```
+for(uint i = 2; i <= n; i++) {
+	previousSecond += previousFirst;
+    previousFirst = previousSecond;
+    }
+    
+    return(previousSecond);
+```
 
 
 
