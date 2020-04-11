@@ -32,10 +32,10 @@ Sign and send the tx
 ```
 signed_tx = web3.eth.account.signTransaction(tx, private_key)
 tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)
-
 ```
 
-__Get information of latest block__
+__Get information of latest block__  
+
 `info = web3.eth.getBlock('latest')`
 
 For this latest block, 
@@ -47,6 +47,27 @@ __Get and print receipt of conducted tx__
 ```
 print(web3.eth.getTransactionReceipt(tx_hash))
 ```
+
+## Question 2
+__Compile and deploy smart contract__
+
+I was unable to compile with `solc` despite numerous tries. I tried	`sudo npm install -g` and `npm install` and set path but still kept getting permission errors and other errors. In the end, decided to simply compile with Remix and get the abi and bytecode values directly from there.
+
+```
+abi = json.loads(open('abi.json', 'r').read())
+bytecode = json.loads(open('bytecode.json', 'r').read())['object']
+```
+
+Create the smart contract object and deploy it  
+```
+Fib = web3.eth.contract(abi=abi, bytecode=bytecode)
+tx_hash = Fib.constructor().transact()
+tx_receipt = web3.eth.waitForTransactionReceipt(tx_hash)
+```
+
+__Which Fibonacci function is more efficient in terms of gas cost?__
+Instantiate the smart contract at specified address  
+`contract = web3.eth.contract(address=tx_receipt.contractAddress, abi=abi)`
 
 
 
